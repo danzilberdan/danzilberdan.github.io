@@ -4,3 +4,7 @@
 
 layout: home
 ---
+
+<head>
+    <meta name="google-site-verification" content="nRsFNtddJ1vy-_NXFnedin53OgqegiA2O-cDWhy1AVE" />
+</head>
