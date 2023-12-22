@@ -8,7 +8,7 @@ categories: jekyll update
 In this post, I aim to delve deeply into the mechanisms by which SQLite ensures data validity even in the face of errors, power failures, and various other unforeseen mishaps.
 
 <h1>ACID</h1>
-ACID stands for Atomicity, Consistency, Isolation and Durability. These are guarantees set by SQLite so that users of an SQLite database can count on.
+ACID stands for Atomicity, Consistency, Isolation and Durability. These are guarantees set by SQLite that users of an SQLite database can count on.
 
 Operations on the database are grouped to transactions. Atomicity guarantees that each transaction will take effect only if it succeeds completely. If a transaction fails while running, the whole of it will take no effect and the database will be left unchanged. This includes recovery from power failures scenarios without ending up with partial writes.
 
