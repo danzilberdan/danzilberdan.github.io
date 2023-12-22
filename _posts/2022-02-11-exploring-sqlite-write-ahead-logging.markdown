@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Exploring Write Ahead Logging in SQLite"
-date:   2022-02-11 22:51:41 +0200
+date:   2023-12-22 12:08:00 +0200
 categories: jekyll update
 ---
 <blockquote>SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day.</blockquote>
 In this post I will try to deep dive into how SQLite guarantees data validity despite errors, power failures, and other mishaps.
 
 <h1>ACID</h1>
-ACID stands for Atomicity, Consistency, Isolation and Durability. These are gurentees set by SQLite so that users of an SQLite database can count on.
+ACID stands for Atomicity, Consistency, Isolation and Durability. These are guarantees set by SQLite so that users of an SQLite database can count on.
 
 Operations on the database are grouped to transactions. Atomicity guarantees that each transaction will take effect only if it succeeds completely. If a transaction fails while running, the whole of it will take no effect and the database will be left unchanged. This includes recovery from power failures scenarios without ending up with partial writes.
 
