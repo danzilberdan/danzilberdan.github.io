@@ -32,20 +32,20 @@ Let's look at an example. As you can see, at T0 (Example start), All pages are b
 <h1>Power Loss</h1>
 Let's assume a power loss occurs after the WAL has been persisted to the disk. The next time the database will be opened, the WAL file will still be available and the application will start to write the modified pages to the database file again. This way it's guaranteed that committed transactions will not be undone.
 
-If the power loss occurs in the middle of a transaction the WAL file will contain a partial transaction that was not marked as fully complete. This way SQLite will know it should be ignored which will keep the database Atomic.
+If a power loss occurs in the middle of a transaction, the WAL file will contain a partial transaction that was not marked as fully complete. In that case, SQLite will know it should be ignored and the database's atomicity guarantee will be kept.
 
 <h1>Application or Database Error</h1>
-Other than power loss, the application can open a transaction and while executing operations, get into error state. In addition, some database constraints can lead to errors that originate from the database itself. In those cases, SQLite has the ability to rollback the database's state to the initial state. This is done by removing the modified pages in the WAL, those which are part of the transaction.
+Other than power loss, an application can open a transaction and while executing operations, get into an error state. This can be caused by the application's logic or by database constraints for example. Either way, SQLite has the ability to rollback the database's state to the transaction's initial state. This is done by removing the modified pages from the WAL.
 
 <h1>Concurrency</h1>
-SQLite is used in a wide range of apps, many of which require concurrent access to the database. SQLite allows concurrent read operations but allows only one write operation at a time.
+SQLite is used in a wide range of apps, many of which require concurrent access to the database. SQLite allows concurrent read processes but allows only one write process at a time.
 
-Once a read operation starts, SQLite checks for the newest committed page in the WAL. It will keep the index of that page as as a marking of the state the read operation will run on. Whenever SQLite accesses a certain page, it will first check if the WAL contains pages overriding that specific page which were commited before the marking. If the WAL contains overriding pages, the most up to date page will be used instead of the actual file's page. This is done in order for the read operation to act on the database as if a snapshot was taken at the exact moment the read operation started. If database changes are commited while the read is running, they will not interfere with the read operation because the reading process is locked to the point in time when it started. Thanks to this property, Isolation is preserved while accessing the database concurrently.
+Once a read process starts, SQLite checks for the newest committed page in the WAL. It will keep the index of that page as a marking of a frozen state which the read process will execute on. Whenever SQLite accesses a certain page, it will check the WAL for the newest page data but will ignore WAL entries that were added after the marking. This is done in order for the read process to act on the database as if a snapshot was taken at the exact moment the read process started. If database changes are commited while the read process is running, they will not interfere with the read operation. Thanks to this property, Isolation is preserved while accessing the database concurrently.
 
 <h1>Checkpoints</h1>
-Once in a while, A checkpoint will run - by user or automatically. A checkpoint operation updates the database file with the changes contained in the WAL.
+Once in a while, A checkpoint will run (by a user or automatically). A checkpoint operation updates the database file with the changes contained in the WAL.
 
-If a checkpoint operation is executed while a read or write operations are running, it will only persist pages until it reaches a marking which signals that a reader process relies on the state that existed when the process started. It will not checkpoint further because doing so will override the state that the reader process relies on with newer updates.
+If a checkpoint operation is executed while a read or write operations are running, it will only persist pages until it reaches a marking. The marking signals that a reader process relies on the state that existed when it started. SQLite will not checkpoint further because doing so will override the state that the reader process relies on with newer updates.
 
 <h1>References</h1>
 Read <a href="https://sqlite.org/wal.html" target="_blank">SQLite's documentation on WAL</a> for further information and implementation details.
