@@ -17,7 +17,7 @@ Durability guarantees that once a transaction has been committed, it will remain
 Isolation guarantees that concurrent readers and writers will not impact each other. A write operation will not change the data that a running read operation sees.
 
 <h1>Write Ahead Logging</h1>
-Write ahead logging is one of the journaling modes used by SQLite. It allows SQLite databases to be compliant with ACID while allow significantly better performance compared to older journaling modes.
+Write ahead logging (WAL) is one of the journaling modes used by SQLite. It allows SQLite databases to be compliant with ACID while allowing significantly better performance compared to older journaling modes.
 
 SQLite database files are treated as a collection of pages. Each page is made up of exactly the same amount of bytes.
 
@@ -25,7 +25,7 @@ The write ahead log is another SQLite file kept separate from the database file.
 
 <h4>Example</h4>
 
-Let's look at an example. As you can see, at T0 (Example start), All pages are blue - representing their original content. As time passes, pages are modified. At T1, Page 0, is overriden with new data. At T2
+Let's look at an example. As you can see, at T0 (Example start), All pages are blue - representing their original content. As time passes, pages are modified. At T1, Page 0, is overriden with new data. At T2, pages 2 and 3 are overriden with new page contents. Notice that the changes are appended one on top of the other to the WAL.
 
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQi01fFBD3hDG5kV4dGc7WMaGznZ_sBgp0vl-_tNhS5Vy4OmGPpqjJPTfU1BPkTSahiv346lLFIVuZ-/pub?w=1440&amp;h=810">
 
