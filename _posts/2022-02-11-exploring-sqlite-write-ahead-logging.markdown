@@ -5,7 +5,7 @@ date:   2023-12-22 12:08:00 +0200
 categories: jekyll update
 ---
 <blockquote>SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day.</blockquote>
-In this post I will try to deep dive into how SQLite guarantees data validity despite errors, power failures, and other mishaps.
+In this post, I aim to delve deeply into the mechanisms by which SQLite ensures data validity even in the face of errors, power failures, and various other unforeseen mishaps.
 
 <h1>ACID</h1>
 ACID stands for Atomicity, Consistency, Isolation and Durability. These are guarantees set by SQLite so that users of an SQLite database can count on.
