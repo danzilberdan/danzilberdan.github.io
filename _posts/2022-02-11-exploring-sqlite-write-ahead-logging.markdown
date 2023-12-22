@@ -4,7 +4,6 @@ title:  "Exploring Write Ahead Logging in SQLite"
 date:   2022-02-11 22:51:41 +0200
 categories: jekyll update
 ---
-
 <h1>ACID properties</h1>
 SQLite is compliant with ACID in order to guarantee data validity despite errors, power failures, and other mishaps. ACID stands for Atomicity, Consistency, Isolation and Durability.
 
