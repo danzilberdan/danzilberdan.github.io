@@ -25,7 +25,7 @@ The write ahead log is another SQLite file kept separate from the database file.
 
 <h4>Example</h4>
 
-Let's look at an example. As you can see, at T0 (Example start), All pages are blue - representing their original content. As time passes, pages are modified. At T1, Page 0, is overriden with new data. At T2, pages 2 and 3 are overriden with new page contents. Notice that the changes are appended one on top of the other to the WAL.
+Let's look at an example. As you can see, at T0 (initial time), All pages are blue - representing their original content. As time passes, pages are modified. At T1, Page 0, is overriden with new data. At T2, pages 2 and 3 are overriden with new page contents. Notice that the changes are appended one on top of the other to the WAL.
 
 <img src="https://docs.google.com/drawings/d/e/2PACX-1vQi01fFBD3hDG5kV4dGc7WMaGznZ_sBgp0vl-_tNhS5Vy4OmGPpqjJPTfU1BPkTSahiv346lLFIVuZ-/pub?w=1440&amp;h=810">
 
