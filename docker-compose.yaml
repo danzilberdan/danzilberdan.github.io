@@ -1,0 +1,8 @@
+services:
+  jekyll:
+    image: bretfisher/jekyll-serve
+    volumes:
+      - .:/site
+    ports:
+      - '443:4000'
+    command: jekyll serve --force_polling -H 0.0.0.0 -P 4000 --ssl-key ssl/localhost.key --ssl-cert ssl/localhost.crt
