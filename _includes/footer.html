@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js";
@@ -35,10 +36,9 @@
                 serviceWorkerRegistration: registration,
             })
                 .then(currentToken => {
-                    console.log('Got token ' + currentToken);
                     if (currentToken) {
-                        console.log(currentToken);
-                        return currentToken;
+                        console.log(`Got token ${currentToken}`)
+                        subscribeToken(currentToken);
                     } else {
                         console.log('No registration token available. Request permission to generate one.');
                     }
@@ -50,7 +50,21 @@
         }).catch(console.error);
     }
 
-    
+    const API_URL = 'https://pfjt40ad8c.execute-api.us-east-1.amazonaws.com/'
+
+    function subscribeToken(firebaseToken) {
+        const requestData = {
+            firebaseToken: firebaseToken,
+        };
+
+        return axios.post(API_URL, requestData)
+            .then((response) => {
+                return response.data;
+            })
+            .catch((error) => {
+                throw error.response ? error.response.data : error.message;
+            });
+    }
 
     onMessage(messaging, payload => {
         console.log('Message received. ', payload);
