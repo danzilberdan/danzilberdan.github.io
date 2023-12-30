@@ -11,8 +11,6 @@ const firebaseConfig = {
   measurementId: "G-PV6ZD4J667"
 };
 
-// // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
-// Initialize Firebase Cloud Messaging and get a reference to the service
 const messaging = firebase.messaging()
