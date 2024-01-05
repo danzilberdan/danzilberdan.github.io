@@ -29,6 +29,7 @@ In addition, in the process of designing solutions, we encounter many problems t
 
 # Defining Processes
 <img src="{{ site.baseurl }}/images/processes.webp" />
+
 Many times, solving significant problems involves processes which need to be executed many times. For example, the development of hardware requires iterations of prototypes which are built with different assembly steps, firmware compilation and so on.
 
 These kind of processes contain many small details which evolve through practice and time. Usually, the details are spread across the minds of everyone involved in the process. Writing down the details of each stage of the process can optimize the process on the organizational level.
@@ -39,6 +40,7 @@ Furthermore, newcomers to the organization can swiftly grasp the processes and a
 
 # Empathetic Communication
 <img src="{{ site.baseurl }}/images/team.webp" />
+
 When making decisions as a team, not everyone agrees on the direction taken. The best we can do about it is to allow everyone to feel like they have been listened to and that their opinion was taken seriously.
 
 Writing can be used for that. When making important decisions, write down everyone's opinions. When presenting the decision, include the different factors and considerations. This way the whole team will feel like their opinion was heard, even if a different direction was taken.
@@ -54,3 +56,9 @@ Although this can be alleviated by preserving structure, in the very near future
 
 # Conclusion
 Although it is often overlooked, writing is beneficial on a personal and organizational level. Writing is a tool for thinking, collaborating and creating a digital knowledge base. In the very near future, the written content will come to life and improve the very important work that we do.
+
+<style type="text/css">
+  img {
+    width: 100%;
+  }
+</style>
