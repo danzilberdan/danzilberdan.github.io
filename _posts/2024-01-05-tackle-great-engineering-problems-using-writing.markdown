@@ -39,7 +39,6 @@ When things go wrong, it often leads to arguments and blame directed towards the
 Furthermore, newcomers to the organization can swiftly grasp the processes and acclimate themselves, facilitating a quicker adaptation to their roles.
 
 # Empathetic Communication
-<img src="{{ site.baseurl }}/images/team.webp" />
 
 When making decisions as a team, not everyone agrees on the direction taken. The best we can do about it is to allow everyone to feel like they have been listened to and that their opinion was taken seriously.
 
