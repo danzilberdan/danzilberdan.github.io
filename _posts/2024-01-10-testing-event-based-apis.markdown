@@ -11,7 +11,7 @@ The simplest approach would be to set a variable when the event is called. In th
 public class Tests
 {
     [Test]
-    public void TestMultipleYields()
+    public void TestSubscription()
     {
         var flag = false;
         using var watcher  = _api.SubscribeToEvent(_ =>
@@ -33,7 +33,7 @@ Instead, the better approach would be to use a synchronization mechanism like an
 public class Tests
 {
     [Test]
-    public void TestMultipleYields()
+    public void TestSubscription()
     {
         var watchEvent = new AutoResetEvent(false);
         using var watcher  = _api.SubscribeToEvent(_ =>
