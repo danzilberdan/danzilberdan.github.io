@@ -1,7 +1,7 @@
 const admin = require('firebase-admin');
 const serviceAccount = require('./firebaseServiceAccount.secret.json');
 
-const url = 'https://danzilberdan.github.io/Blog/'
+const url = 'https://danzilberdan.github.ioS/'
 const payload = {
     notification: {
       title: 'New Blog Post',

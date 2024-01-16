@@ -28,7 +28,7 @@
     const messaging = getMessaging(app);
 
     if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('/Blog/firebase-messaging-sw.js').then(registration => {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js').then(registration => {
             getToken(messaging, { 
                 vapidKey: 'BAqfwT45uixKY6_6OzuztpA2y7JL2pTtLncFwMro4hT9t4Zr9KwepApOaOZbsQuJ_t72m13nO7H-Ue30_jr2akE',
                 serviceWorkerRegistration: registration,
