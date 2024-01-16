@@ -24,15 +24,13 @@ title: Dan Zilberman
 email: dan.zilberman99@gmail.com
 
 url: danzilberdan.github.io
-baseurl: /Blog
 # twitter_username: dan.zilberman
 # github_username:  danzilberdan
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-
 
 # Exclude from processing.
 # The following items will not be processed, by default.

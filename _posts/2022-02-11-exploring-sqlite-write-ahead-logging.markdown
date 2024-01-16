@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Exploring Write Ahead Logging in SQLite"
 date:   2023-12-22 12:08:00 +0200
 categories: jekyll update

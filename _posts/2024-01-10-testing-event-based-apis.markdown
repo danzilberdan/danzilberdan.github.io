@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Testing Event Based APIs"
 date:   2024-01-10 09:00:00 +0200
 categories: jekyll update TIL

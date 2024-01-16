@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Tackle Great Engineering Problems using Writing"
 date:   2024-01-05 15:33:00 +0200
 categories: jekyll update
