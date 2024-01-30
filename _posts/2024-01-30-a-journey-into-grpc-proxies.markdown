@@ -8,6 +8,8 @@ categories: jekyll update TIL
 
 Have you ever envisioned a serverless solution that enables long running, durable excution that not only eliminates the need for maintaining servers but also offers a cost-effective pay-as-you-go model? Well, I embarked on such a journey, crafting a Temporal solution that abstracts away the complexities of worker processes and brings the power of Temporal to a serverless paradigm.
 
+Before we dive in, if this sounds interesting to you, get started [here](https://github.com/danzilberdan/Durable-Serverless-Starter).
+
 ## Discovering Temporal's Potential
 My journey begins with a deep dive into Temporal, captivated by its behavior and functionality. However, the hurdle of constantly maintaining worker processes connected to the Temporal cluster led me to conceive a serverless solution. This solution promised not only freedom from server management but also a cost-efficient model where payment only corresponds to the actual execution time.
 
@@ -31,7 +33,7 @@ In Python, `__getattr__` is a special method that gets called when an attribute 
 
 Dynamic Method Handling:
 ```python
-class ProxyServices:
+class ProxyServicer:
     def __getattr__(self, __name: str) -> Any:
         async def dynamic(request, context):
             try:
@@ -59,6 +61,27 @@ It then asynchronously fetches the response.
 
 #### Dynamic Method Handling:
 This implementation allows the ProxyServicer to dynamically handle any gRPC method, making it adaptable to changes in the system.
+
+### Integration with Temporal's Schema
+This is great, but ultimately, we need to capture the data, serialize it, and then deserialize it. Let's delve into the process and understand how it's done.
+
+```python
+async def run():
+    channel = grpc.insecure_channel(TEMPORAL_HOST)
+    wf_stub = WorkflowServiceStub(channel)
+    op_stub = OperatorServiceStub(channel)
+    
+    wf_servicer = ProxyServicer(wf_stub)
+    op_servicer = ProxyServicer(op_stub)
+    server = grpc.aio.server()
+    add_WorkflowServiceServicer_to_server(wf_servicer, server)
+    add_OperatorServiceServicer_to_server(op_servicer, server)
+    
+    server.add_insecure_port('[::]:7234')
+    await server.start()
+    await server.wait_for_termination()
+```
+This Python code sets up an asynchronous gRPC server for Temporal workflow and operator services. It establishes a connection to a Temporal server, creates service stubs, initializes the ProxyServicer we have seen before, configures the server, and starts it. The server proxies Temporal workflow and operator requests through gRPC communication. `add_WorkflowServiceServicer_to_server` and `add_OperatorServiceServicer_to_server` are the functions that actually add provide the server with the serialization and deserialization logic allowing us to ignore the internal structure of the protobuf messages and handle them dynamically in Python.
 
 ## Seamless Client Interaction
 By implementing magic functions, the ProxyServicer class facilitated seamless interaction between clients and the remote server. Requests are intelligently processed, securely forwarded to the gRPC server, and responses seamlessly returned to clients, creating a transparent gRPC proxy.
