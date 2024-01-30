@@ -81,7 +81,7 @@ async def run():
     await server.start()
     await server.wait_for_termination()
 ```
-This Python code sets up an asynchronous gRPC server for Temporal workflow and operator services. It establishes a connection to a Temporal server, creates service stubs, initializes the ProxyServicer we have seen before, configures the server, and starts it. The server proxies Temporal workflow and operator requests through gRPC communication. `add_WorkflowServiceServicer_to_server` and `add_OperatorServiceServicer_to_server` are the functions that actually add provide the server with the serialization and deserialization logic allowing us to ignore the internal structure of the protobuf messages and handle them dynamically in Python.
+This Python code sets up an asynchronous gRPC server for Temporal workflow and operator services. It establishes a connection to a Temporal server, creates service stubs, initializes the ProxyServicer we have seen before, configures the server, and starts it. The server proxies Temporal workflow and operator requests through gRPC communication. `add_WorkflowServiceServicer_to_server` and `add_OperatorServiceServicer_to_server` are the functions that actually provide the server with the serialization and deserialization logic allowing us to ignore the internal structure of the protobuf messages and handle them dynamically in Python.
 
 ## Seamless Client Interaction
 By implementing magic functions, the ProxyServicer class facilitated seamless interaction between clients and the remote server. Requests are intelligently processed, securely forwarded to the gRPC server, and responses seamlessly returned to clients, creating a transparent gRPC proxy.
