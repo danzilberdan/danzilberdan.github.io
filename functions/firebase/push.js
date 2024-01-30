@@ -1,11 +1,11 @@
 const admin = require('firebase-admin');
 const serviceAccount = require('./firebaseServiceAccount.secret.json');
 
-const url = 'https://danzilberdan.github.ioS/'
+const url = 'https://danzilberdan.github.io/testing-for-network-failures/'
 const payload = {
     notification: {
-      title: 'New Blog Post',
-      body: 'Check out our latest blog post!',
+      title: 'Testing for Network Failures',
+      body: 'Port Forwarding for Testing Network Failures',
     //   imageUrl: undefined,
     },
     data: {
