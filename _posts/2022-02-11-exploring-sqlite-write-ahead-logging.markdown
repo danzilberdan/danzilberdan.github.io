@@ -2,7 +2,7 @@
 layout: single
 title:  "Exploring Write Ahead Logging in SQLite"
 date:   2023-12-22 12:08:00 +0200
-categories: jekyll update
+categories: 
 ---
 <blockquote>SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day.</blockquote>
 In this post, I aim to delve deeply into the mechanisms by which SQLite ensures data validity even in the face of errors, power failures, and various other unforeseen mishaps.

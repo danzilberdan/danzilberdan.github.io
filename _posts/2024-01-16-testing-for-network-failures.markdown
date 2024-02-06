@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Testing for Network Failures
-categories: jekyll update TIL
+categories: 
 ---
 
 I am currently in the process of developing a wrapper library around [etcd](https://etcd.io/), which will allow microservices in my company to access a shared runtime configuration. The wrapper will allow us to keep seperation of concerns so that each microservice does not rely on the database implementation or any any specific structure of the keys in etcd. In addition, the library exposes a fully typed API for teams that require the use of the shared state.

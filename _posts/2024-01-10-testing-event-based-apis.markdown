@@ -2,7 +2,7 @@
 layout: single
 title:  "Testing Event Based APIs"
 date:   2024-01-10 09:00:00 +0200
-categories: jekyll update TIL
+categories: 
 ---
 When writing Unit Tests or Integration Tests for an API that exposes events, we need a way to validate that the events are called.
 The simplest approach would be to set a variable when the event is called. In the test itself we can sleep for a certain duration and check the variable:
