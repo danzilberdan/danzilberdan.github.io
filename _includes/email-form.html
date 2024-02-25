@@ -1,0 +1,127 @@
+<footer>
+
+  <div id="email-modal" class="email-modal">
+    <div class="email-modal-content">
+      <span class="close">&times;</span>
+      <form
+        id="email-form"
+        action="https://buttondown.email/api/emails/embed-subscribe/danz"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.email/danz', 'popupwindow')"
+        class="email-form">
+
+        <h1>
+          Join my Newsletter 📝
+        </h1>
+        <p>
+          Stay up to date with my projects, tips and thoughts in general.
+        </p>
+
+        <div class="spacer"></div>
+
+        <label for="bd-email">Enter your email</label>
+        <input type="email" name="email" id="bd-email" />
+        
+        <div class="email-buttons">
+          <input class="subscribe" type="submit" value="Subscribe" />
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+    
+
+  <style>
+    .email-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      margin: 0 auto;
+      background-color: #7a7a7a59;
+    }
+    
+    .email-modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      max-width: min(90%, 40rem);
+      border-radius: 5px;
+    }
+
+    .email-form {
+      margin: auto;
+      background-color: transparent;
+    }
+
+    .email-form h1 {
+      font-size: 1.5rem;
+      color: black;
+    }
+    
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      vertical-align: top;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .subscribe {
+      width: 100% !important;
+      background-color: rgb(32, 147, 224);
+      color: white;
+      padding: 0.5rem;
+    }
+
+    .spacer {
+      height: 1rem;
+    }
+
+    .masthead {
+      z-index: 0;
+    }
+  </style>
+
+  <script>
+    const modal = document.getElementById("email-modal");
+    const form = document.getElementById("email-form");
+    const span = document.getElementsByClassName("close")[0];
+
+    const subscribed = JSON.parse(window.localStorage.getItem('subscribed'));
+    if (!subscribed) {
+      setTimeout(() => {
+        modal.style.display = "block";
+      }, 25 * 1000)
+    }
+
+    form.onsubmit = () => {
+      window.localStorage.setItem('subscribed', JSON.stringify(true));
+      return true;
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</footer>
