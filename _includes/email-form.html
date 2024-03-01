@@ -20,12 +20,17 @@
 
         <div class="spacer"></div>
 
-        <label for="bd-email">Enter your email</label>
+        <label for="bd-email">Your email</label>
         <input type="email" name="email" id="bd-email" />
+
+        <div class="spacer"></div>
         
-        <div class="email-buttons">
+        <span class="email-buttons">
           <input class="subscribe" type="submit" value="Subscribe" />
-        </div>
+          <div class="skip-container">
+            <a onclick="onSkipForNow()" href='#'>Maybe later</a>
+          </div>
+        </span>
 
       </form>
     </div>
@@ -44,11 +49,11 @@
       height: 100vh;
       overflow: auto;
       margin: 0 auto;
-      background-color: #7a7a7a59;
+      background-color: #b1b1b194;
     }
     
     .email-modal-content {
-      background-color: white;
+      background-color: rgb(27, 28, 32);
       margin: 10% auto;
       padding: 20px;
       max-width: min(90%, 40rem);
@@ -62,7 +67,7 @@
 
     .email-form h1 {
       font-size: 1.5rem;
-      color: black;
+      color: rgb(255, 255, 255);
     }
     
     .close {
@@ -80,11 +85,30 @@
       cursor: pointer;
     }
 
+    .email-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .subscribe {
-      width: 100% !important;
-      background-color: rgb(32, 147, 224);
+      width: 70% !important;
+      background-color: rgb(0, 151, 197);
       color: white;
       padding: 0.5rem;
+      margin: 0;
+    }
+
+    .skip-container {
+      width: 30% !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: underline;
+    }
+
+    .skip-container a {
+      font-weight: 300;
     }
 
     .spacer {
@@ -101,16 +125,12 @@
     const form = document.getElementById("email-form");
     const span = document.getElementsByClassName("close")[0];
 
-    const subscribed = JSON.parse(window.localStorage.getItem('subscribed'));
-    if (!subscribed) {
+    const poped = JSON.parse(window.localStorage.getItem('poped'));
+    if (!poped) {
       setTimeout(() => {
-        modal.style.display = "block";
-      }, 25 * 1000)
-    }
-
-    form.onsubmit = () => {
-      window.localStorage.setItem('subscribed', JSON.stringify(true));
-      return true;
+        popupNewsletter()
+        window.localStorage.setItem('poped', JSON.stringify(true));
+      }, 40 * 1000)
     }
 
     span.onclick = function() {
@@ -121,6 +141,15 @@
       if (event.target == modal) {
         modal.style.display = "none";
       }
+    }
+
+    function popupNewsletter() {
+      modal.style.display = "block";
+    }
+
+    function onSkipForNow() {
+      window.localStorage.setItem('poped', JSON.stringify(false));
+      modal.style.display = "none";
     }
   </script>
 

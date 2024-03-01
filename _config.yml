@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Dan Zilberman"
   avatar           : /images/profile.jpg
-  bio              : "I am passionate about software and like digging deeper than most in the persuit of non-trivial solutions. I am also interested in finance, business, aeronautics and more."
+  bio              : "Would love to share non-trivial software projects I am working on. Also interested in aeronautics, finance and much more."
   location         : 
   email            : dan.zilberman99@gmail.com
   links:
