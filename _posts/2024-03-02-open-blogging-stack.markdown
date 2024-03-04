@@ -4,7 +4,7 @@ title: The Open Blogging Stack
 categories: 
 ---
 
-The internet evolved as a distributed network of loosley coupled and specialized services.
+The internet evolved as a distributed network of loosely coupled and specialized services.
 Competing for revenue, services expanded their offerings and locked their users by using closed protocols.
 For example, open IM protocols like [XMPP](https://xmpp.org/) were replaced by closed apps like WhatsApp.
 
@@ -23,11 +23,11 @@ The stack uses [Jekyll](https://jekyllrb.com/), [Github Pages](https://pages.git
 ## Jekyll
 Jekyll is an [open source](https://github.com/jekyll/jekyll) software for publishing markdown formatted content.
 Being plain text, markdown is very portable.
-The markdown is tranformed into static websites which are just bundles of html, css and js files which can be served by any [CDN](https://en.wikipedia.org/wiki/Content_delivery_network).
+The markdown is transformed into static websites which are just bundles of html, css and js files which can be served by any [CDN](https://en.wikipedia.org/wiki/Content_delivery_network).
 
 ## Github Pages
 Github pages is a convenient way of hosting static sites with built-in versioning.
-It automatically publishes your site to it's own CDN.
+It automatically publishes your site to its own CDN.
 That said, thanks to the simplicity of this setup, Github can easily be replaced by any other CDN.
 
 ## Buttondown
