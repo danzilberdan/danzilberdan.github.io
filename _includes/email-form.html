@@ -28,9 +28,11 @@
         <span class="email-buttons">
           <input class="subscribe" type="submit" value="Subscribe" />
           <div class="skip-container">
-            <a onclick="onSkipForNow()" href='#'>Maybe later</a>
+            <a class="underline" onclick="onSkipForNow()" target="_blank">Maybe later</a>
           </div>
         </span>
+
+        <p class="light">Powered by <a target=”_blank” class="underline" href="https://buttondown.email/">Buttondown</a></p>
 
       </form>
     </div>
@@ -104,7 +106,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .underline {
+      text-decoration: underline !important;
     }
 
     .skip-container a {
@@ -113,6 +119,10 @@
 
     .spacer {
       height: 1rem;
+    }
+
+    .light {
+      font-weight: 300;
     }
 
     .masthead {
@@ -130,7 +140,7 @@
       setTimeout(() => {
         popupNewsletter()
         window.localStorage.setItem('poped', JSON.stringify(true));
-      }, 40 * 1000)
+      }, 50 * 1000)
     }
 
     span.onclick = function() {
