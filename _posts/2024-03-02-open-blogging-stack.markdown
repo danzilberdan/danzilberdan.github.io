@@ -69,7 +69,7 @@ If you would like a form that pops up automatically with a simple and customizab
 - Note that this file's location may change based on the theme you use. I personally use minimal-mistakes and thus I place this text in `_includes/footer/custom.html`
 - Add a subscribe button that actively pops up the form like so:
 ```{% raw  %}
-<a onclick="popupNewsletter()">Subscribe</a>
+<button onclick="popupNewsletter()">Subscribe</button>
 {% endraw %}```
 - Read the included js to understand the form's logic and change it if required
 
