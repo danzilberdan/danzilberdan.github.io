@@ -22,4 +22,6 @@ Now just add the root certificate to chrome
 
 Chrome -> Settings -> Privacy and security -> Security -> Manage certificates -> Authorities -> Import -> Choose 'contoso.crt' -> Check 'Trust this certificate for identifying websites'.
 
+Finally, run a local development server with `bundle exec jekyll serve --livereload`
+
 Now, [start working](https://localhost/Blog/).
