@@ -3,40 +3,20 @@
   <div id="email-modal" class="email-modal">
     <div class="email-modal-content">
       <span class="close">&times;</span>
-      <form
-        id="email-form"
-        action="https://listmonk.danz.blog/subscription/form"
-        method="get"
-        target="popupwindow"
-        onsubmit="window.open('https://buttondown.email/danz', 'popupwindow')"
-        class="email-form">
-
-        <h1>
-          Join my Newsletter 📝
-        </h1>
-        <p>
-          Stay up to date with my projects, tips and thoughts in general.
-        </p>
-
-        <div class="spacer"></div>
-
-        <label for="bd-email">Your email</label>
-        <input type="email" name="email" id="bd-email" />
-
-        <div class="spacer"></div>
-        
-        <span class="email-buttons">
-          <input class="subscribe" type="submit" value="Subscribe" />
-          <div class="skip-container">
-            <a class="underline" onclick="onSkipForNow()" target="_blank">Maybe later</a>
-          </div>
-        </span>
-
-        <input id="68501" type="hidden" name="l" checked value="685013fe-fe97-4c3e-a787-abb68cbe9c49" />
-
-      </form>
+      <h1>
+        Join my Newsletter 📝
+      </h1>
+      <p>
+        Stay up to date with my projects, tips and thoughts in general.
+      </p>
+      <div class="spacer"></div>
+      <span class="email-buttons">
+        <a class="subscribe" href="https://listmonk.danz.blog/subscription/form" target="_blank">Subscribe</a>
+        <div class="skip-container">
+          <a class="underline" onclick="onSkipForNow()" target="_blank">Maybe later</a>
+        </div>
+      </span>
     </div>
-
   </div>
     
 
@@ -57,14 +37,9 @@
     .email-modal-content {
       background-color: rgb(27, 28, 32);
       margin: 10% auto;
-      padding: 20px;
+      padding: 30px;
       max-width: min(90%, 40rem);
       border-radius: 5px;
-    }
-
-    .email-form {
-      margin: auto;
-      background-color: transparent;
     }
 
     .email-form h1 {
@@ -99,6 +74,8 @@
       color: white;
       padding: 0.5rem;
       margin: 0;
+      border-radius: 5px;
+      text-align: center;
     }
 
     .skip-container {
@@ -140,7 +117,7 @@
       setTimeout(() => {
         popupNewsletter()
         window.localStorage.setItem('poped', JSON.stringify(true));
-      }, 50 * 1000)
+      }, 40 * 1000)
     }
 
     span.onclick = function() {
